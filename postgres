@@ -1,5 +1,5 @@
 
-CREATE TABLE cc1md_202308350.produtos (
+CREATE TABLE cc1md_202308350_postgresql.sql.produtos (
                 produto_id NUMERIC(38) NOT NULL,
                 nome VARCHAR(255) NOT NULL,
                 preco_unitario NUMERIC(10,2),
@@ -9,21 +9,21 @@ CREATE TABLE cc1md_202308350.produtos (
                 imagem_arquivo VARCHAR(512),
                 imagem_charset VARCHAR(512),
                 imagem_ultima_atualizacao DATE,
-                CONSTRAINT produto_id_pk PRIMARY KEY (produto_id)
+                CONSTRAINT produtos_pk PRIMARY KEY (produto_id)
 );
-COMMENT ON TABLE cc1md_202308350.produtos IS 'tabela produtos detalha todos os tipos de produtos com suas especificações e diferencia os produtos pela PK produto_id';
-COMMENT ON COLUMN cc1md_202308350.produtos.produto_id IS 'PK da tabela produtos, separa e identifica unicamente cada produto';
-COMMENT ON COLUMN cc1md_202308350.produtos.nome IS 'nome de cada produto (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.produtos.preco_unitario IS 'preço unitário de cada produto (opcional)';
-COMMENT ON COLUMN cc1md_202308350.produtos.detalhes IS 'detalhes do produto (opcional)';
-COMMENT ON COLUMN cc1md_202308350.produtos.imagem IS 'imagem do produto (opcional)';
-COMMENT ON COLUMN cc1md_202308350.produtos.imagem_mime_type IS '"imagem mime type" do produto (opcional)';
-COMMENT ON COLUMN cc1md_202308350.produtos.imagem_arquivo IS 'arquivo da imagem do produto (opcional)';
-COMMENT ON COLUMN cc1md_202308350.produtos.imagem_charset IS 'charset da imagem do produto (opcional)';
-COMMENT ON COLUMN cc1md_202308350.produtos.imagem_ultima_atualizacao IS 'ultima atualização da imagem do produto (opcional)';
+COMMENT ON TABLE cc1md_202308350_postgresql.sql.produtos IS 'tabela produtos detalha todos os tipos de produtos com suas especificações e diferencia os produtos pela PK produto_id';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.produto_id IS 'PK da tabela produtos, separa e identifica unicamente cada produto';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.nome IS 'nome de cada produto (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.preco_unitario IS 'preço unitário de cada produto (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.detalhes IS 'detalhes do produto (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.imagem IS 'imagem do produto (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.imagem_mime_type IS '"imagem mime type" do produto (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.imagem_arquivo IS 'arquivo da imagem do produto (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.imagem_charset IS 'charset da imagem do produto (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.produtos.imagem_ultima_atualizacao IS 'ultima atualização da imagem do produto (opcional)';
 
 
-CREATE TABLE cc1md_202308350.lojas (
+CREATE TABLE cc1md_202308350_postgresql.sql.lojas (
                 loja_id NUMERIC(38) NOT NULL,
                 nome VARCHAR(255) NOT NULL,
                 endereco_web VARCHAR(100),
@@ -35,163 +35,163 @@ CREATE TABLE cc1md_202308350.lojas (
                 logo_arquivo VARCHAR(512),
                 logo_charset VARCHAR(512),
                 logo_ultima_atualizacao DATE,
-                CONSTRAINT loja_id_pk PRIMARY KEY (loja_id)
+                CONSTRAINT lojas_pk PRIMARY KEY (loja_id)
 );
-COMMENT ON TABLE cc1md_202308350.lojas IS 'Tabela lojas representa todas as lojas, separadas pela PK loja_id, com todas as suas especificações.';
-COMMENT ON COLUMN cc1md_202308350.lojas.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
-COMMENT ON COLUMN cc1md_202308350.lojas.nome IS 'nome de cada loja (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.lojas.endereco_web IS 'endereço web da loja (opcional)';
-COMMENT ON COLUMN cc1md_202308350.lojas.endereco_fisico IS 'endereço físico da loja (opcional)';
-COMMENT ON COLUMN cc1md_202308350.lojas.latitude IS 'latitude da loja (opcional)';
-COMMENT ON COLUMN cc1md_202308350.lojas.longitude IS 'longitude da loja (opcional)';
-COMMENT ON COLUMN cc1md_202308350.lojas.logo IS 'Logo da loja (opcional)';
-COMMENT ON COLUMN cc1md_202308350.lojas.logo_mime_type IS '"logo mime" type da loja (opcional)';
-COMMENT ON COLUMN cc1md_202308350.lojas.logo_arquivo IS 'arquivo do logo da loja (opcinal)';
-COMMENT ON COLUMN cc1md_202308350.lojas.logo_charset IS 'logo charset da loja (opcional)';
-COMMENT ON COLUMN cc1md_202308350.lojas.logo_ultima_atualizacao IS 'data da ultima atualização da loja (opcional)';
+COMMENT ON TABLE cc1md_202308350_postgresql.sql.lojas IS 'Tabela lojas representa todas as lojas, separadas pela PK loja_id, com todas as suas especificações.';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.nome IS 'nome de cada loja (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.endereco_web IS 'endereço web da loja (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.endereco_fisico IS 'endereço físico da loja (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.latitude IS 'latitude da loja (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.longitude IS 'longitude da loja (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.logo IS 'Logo da loja (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.logo_mime_type IS '"logo mime" type da loja (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.logo_arquivo IS 'arquivo do logo da loja (opcinal)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.logo_charset IS 'logo charset da loja (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.lojas.logo_ultima_atualizacao IS 'data da ultima atualização da loja (opcional)';
 
 
-CREATE TABLE cc1md_202308350.estoques (
+CREATE TABLE cc1md_202308350_postgresql.sql.estoques (
                 estoque_id NUMERIC(38) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
                 produto_id NUMERIC(38) NOT NULL,
                 quantidade NUMERIC(38) NOT NULL,
-                CONSTRAINT estoque_id_pk PRIMARY KEY (estoque_id)
+                CONSTRAINT estoques_pk PRIMARY KEY (estoque_id)
 );
-COMMENT ON TABLE cc1md_202308350.estoques IS 'tabela destinada a especificar a quantidade do produto de determinada loja em determinado estoque. O estoque é diferenciado pela PK estoque_id. Além da FK loja_id da tabela lojas e da FK produto_id da tabela produtos';
-COMMENT ON COLUMN cc1md_202308350.estoques.estoque_id IS 'PK da tabela estoques, separa especificamente cada estoque e o quais os produtos e suas quantidades em cada estoque';
-COMMENT ON COLUMN cc1md_202308350.estoques.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
-COMMENT ON COLUMN cc1md_202308350.estoques.produto_id IS 'PK da tabela produtos, separa e identifica unicamente cada produto';
-COMMENT ON COLUMN cc1md_202308350.estoques.quantidade IS 'indica a quantidade do produto disponível (obrigatório)';
+COMMENT ON TABLE cc1md_202308350_postgresql.sql.estoques IS 'tabela destinada a especificar a quantidade do produto de determinada loja em determinado estoque. O estoque é diferenciado pela PK estoque_id. Além da FK loja_id da tabela lojas e da FK produto_id da tabela produtos';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.estoques.estoque_id IS 'PK da tabela estoques, separa especificamente cada estoque e o quais os produtos e suas quantidades em cada estoque';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.estoques.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.estoques.produto_id IS 'PK da tabela produtos, separa e identifica unicamente cada produto';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.estoques.quantidade IS 'indica a quantidade do produto disponível (obrigatório)';
 
 
-CREATE TABLE cc1md_202308350.clientes (
+CREATE TABLE cc1md_202308350_postgresql.sql.clientes (
                 cliente_id NUMERIC(38) NOT NULL,
                 email VARCHAR(255) NOT NULL,
                 nome VARCHAR(255) NOT NULL,
                 telefone1 VARCHAR(20),
                 telefone2 VARCHAR(20),
                 telefone3 VARCHAR(20),
-                CONSTRAINT cliente_id_pk PRIMARY KEY (cliente_id)
+                CONSTRAINT clientes_pk PRIMARY KEY (cliente_id)
 );
-COMMENT ON TABLE cc1md_202308350.clientes IS 'Tabela clientes é usada para identificar e especificar cada cliente. São diferenciados pela PK cliente_id';
-COMMENT ON COLUMN cc1md_202308350.clientes.cliente_id IS 'É a PK da tabela clientes e identifica cada cliente separadamente';
-COMMENT ON COLUMN cc1md_202308350.clientes.email IS 'email de cada cliente da tabela clientes (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.clientes.nome IS 'nome de cada cliente (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.clientes.telefone1 IS 'telefone 1 do cliente (opcional)';
-COMMENT ON COLUMN cc1md_202308350.clientes.telefone2 IS 'telefone 2 do cliente (opcional)';
-COMMENT ON COLUMN cc1md_202308350.clientes.telefone3 IS 'telefone 3 do cliente (opcional)';
+COMMENT ON TABLE cc1md_202308350_postgresql.sql.clientes IS 'Tabela clientes é usada para identificar e especificar cada cliente. São diferenciados pela PK cliente_id';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.clientes.cliente_id IS 'É a PK da tabela clientes e identifica cada cliente separadamente';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.clientes.email IS 'email de cada cliente da tabela clientes (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.clientes.nome IS 'nome de cada cliente (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.clientes.telefone1 IS 'telefone 1 do cliente (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.clientes.telefone2 IS 'telefone 2 do cliente (opcional)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.clientes.telefone3 IS 'telefone 3 do cliente (opcional)';
 
 
-CREATE TABLE cc1md_202308350.envios (
+CREATE TABLE cc1md_202308350_postgresql.sql.envios (
                 envio_id NUMERIC(38) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
                 cliente_id NUMERIC(38) NOT NULL,
                 endereco_entrega VARCHAR(512) NOT NULL,
                 status VARCHAR(15) NOT NULL,
-                CONSTRAINT envio_id_pk PRIMARY KEY (envio_id)
+                CONSTRAINT envios_pk PRIMARY KEY (envio_id)
 );
-COMMENT ON TABLE cc1md_202308350.envios IS 'tabela envios, informa os envios feito pelas lojas para os clientes, com especificações de endereço e status. São diferenciados pela PK envio_id. Além da FK loja_id da tabela lojas e da FK cliente_id da tabela clientes.';
-COMMENT ON COLUMN cc1md_202308350.envios.envio_id IS 'PK da tabela envios, serve para identificar e separar cada pedido';
-COMMENT ON COLUMN cc1md_202308350.envios.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
-COMMENT ON COLUMN cc1md_202308350.envios.cliente_id IS 'É a PK da tabela clientes e identifica cada cliente separadamente';
-COMMENT ON COLUMN cc1md_202308350.envios.endereco_entrega IS 'endereço de entrega do envio (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.envios.status IS 'status do envio (obrigatório)';
+COMMENT ON TABLE cc1md_202308350_postgresql.sql.envios IS 'tabela envios, informa os envios feito pelas lojas para os clientes, com especificações de endereço e status. São diferenciados pela PK envio_id. Além da FK loja_id da tabela lojas e da FK cliente_id da tabela clientes.';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.envios.envio_id IS 'PK da tabela envios, serve para identificar e separar cada pedido';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.envios.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.envios.cliente_id IS 'É a PK da tabela clientes e identifica cada cliente separadamente';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.envios.endereco_entrega IS 'endereço de entrega do envio (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.envios.status IS 'status do envio (obrigatório)';
 
 
-CREATE TABLE cc1md_202308350.pedidos (
+CREATE TABLE cc1md_202308350_postgresql.sql.pedidos (
                 pedido_id NUMERIC(38) NOT NULL,
                 data_hora TIMESTAMP NOT NULL,
                 cliente_id NUMERIC(38) NOT NULL,
                 status VARCHAR(15) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
-                CONSTRAINT pedido_id_pk PRIMARY KEY (pedido_id)
+                CONSTRAINT pedidos_pk PRIMARY KEY (pedido_id)
 );
-COMMENT ON TABLE cc1md_202308350.pedidos IS 'tabela pedidos, informa quais pedidos são feitos por determinado cliente em determina hora, além de informar o status e a data da operação. São identificados pela PK pedido_id. Além da FK cliente_id e da FK loja_id';
-COMMENT ON COLUMN cc1md_202308350.pedidos.pedido_id IS 'PK da tabela pedidos, separa cada pedido com suas especificações';
-COMMENT ON COLUMN cc1md_202308350.pedidos.data_hora IS 'data e hora da transação do pedido (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.pedidos.cliente_id IS 'É a PK da tabela clientes e identifica cada cliente separadamente';
-COMMENT ON COLUMN cc1md_202308350.pedidos.status IS 'status do pedido do cliente (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.pedidos.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
+COMMENT ON TABLE cc1md_202308350_postgresql.sql.pedidos IS 'tabela pedidos, informa quais pedidos são feitos por determinado cliente em determina hora, além de informar o status e a data da operação. São identificados pela PK pedido_id. Além da FK cliente_id e da FK loja_id';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos.pedido_id IS 'PK da tabela pedidos, separa cada pedido com suas especificações';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos.data_hora IS 'data e hora da transação do pedido (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos.cliente_id IS 'É a PK da tabela clientes e identifica cada cliente separadamente';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos.status IS 'status do pedido do cliente (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos.loja_id IS 'é a PK da tabela lojas, separa e identifica todas as lojas existentes no minimundo';
 
 
-CREATE TABLE cc1md_202308350.pedidos_itens (
+CREATE TABLE cc1md_202308350_postgresql.sql.pedidos_itens (
                 pedido_id NUMERIC(38) NOT NULL,
                 produto_id NUMERIC(38) NOT NULL,
                 numero_da_linha NUMERIC(38) NOT NULL,
                 preco_unitario NUMERIC(10,2) NOT NULL,
                 quantidade NUMERIC(38) NOT NULL,
                 envio_id NUMERIC(38) NOT NULL,
-                CONSTRAINT pedidos_itens_id_pk PRIMARY KEY (pedido_id, produto_id)
+                CONSTRAINT pedidos_itens_pfk PRIMARY KEY (pedido_id, produto_id)
 );
-COMMENT ON TABLE cc1md_202308350.pedidos_itens IS 'A tabela pedidos_itens serve para fazer um relacionamente N:N entre a tabela pedidos e produtos, além de algumas especificações. E possui uma FK envio_id da tabela envios';
-COMMENT ON COLUMN cc1md_202308350.pedidos_itens.pedido_id IS 'PK da tabela pedidos, separa cada pedido com suas especificações';
-COMMENT ON COLUMN cc1md_202308350.pedidos_itens.produto_id IS 'PK da tabela produtos, separa e identifica unicamente cada produto';
-COMMENT ON COLUMN cc1md_202308350.pedidos_itens.numero_da_linha IS 'numero da linha do pedido do item (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.pedidos_itens.preco_unitario IS 'preço unitário de cada pedido dos itens (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.pedidos_itens.quantidade IS 'quantidade dos pedidos dos itens (obrigatório)';
-COMMENT ON COLUMN cc1md_202308350.pedidos_itens.envio_id IS 'PK da tabela envios, serve para identificar e separar cada pedido';
+COMMENT ON TABLE cc1md_202308350_postgresql.sql.pedidos_itens IS 'A tabela pedidos_itens serve para fazer um relacionamente N:N entre a tabela pedidos e produtos, além de algumas especificações. E possui uma FK envio_id da tabela envios';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos_itens.pedido_id IS 'PK da tabela pedidos, separa cada pedido com suas especificações';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos_itens.produto_id IS 'PK da tabela produtos, separa e identifica unicamente cada produto';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos_itens.numero_da_linha IS 'numero da linha do pedido do item (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos_itens.preco_unitario IS 'preço unitário de cada pedido dos itens (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos_itens.quantidade IS 'quantidade dos pedidos dos itens (obrigatório)';
+COMMENT ON COLUMN cc1md_202308350_postgresql.sql.pedidos_itens.envio_id IS 'PK da tabela envios, serve para identificar e separar cada pedido';
 
 
-ALTER TABLE cc1md_202308350.estoques ADD CONSTRAINT produtos_estoques_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.estoques ADD CONSTRAINT produtos_estoques_fk
 FOREIGN KEY (produto_id)
-REFERENCES cc1md_202308350.produtos (produto_id)
+REFERENCES cc1md_202308350_postgresql.sql.produtos (produto_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.pedidos_itens ADD CONSTRAINT produtos_pedidos_itens_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.pedidos_itens ADD CONSTRAINT produtos_pedidos_itens_fk
 FOREIGN KEY (produto_id)
-REFERENCES cc1md_202308350.produtos (produto_id)
+REFERENCES cc1md_202308350_postgresql.sql.produtos (produto_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.estoques ADD CONSTRAINT lojas_estoques_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.estoques ADD CONSTRAINT lojas_estoques_fk
 FOREIGN KEY (loja_id)
-REFERENCES cc1md_202308350.lojas (loja_id)
+REFERENCES cc1md_202308350_postgresql.sql.lojas (loja_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.pedidos ADD CONSTRAINT lojas_pedidos_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.pedidos ADD CONSTRAINT lojas_pedidos_fk
 FOREIGN KEY (loja_id)
-REFERENCES cc1md_202308350.lojas (loja_id)
+REFERENCES cc1md_202308350_postgresql.sql.lojas (loja_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.envios ADD CONSTRAINT lojas_envios_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.envios ADD CONSTRAINT lojas_envios_fk
 FOREIGN KEY (loja_id)
-REFERENCES cc1md_202308350.lojas (loja_id)
+REFERENCES cc1md_202308350_postgresql.sql.lojas (loja_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.pedidos ADD CONSTRAINT clientes_pedidos_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.pedidos ADD CONSTRAINT clientes_pedidos_fk
 FOREIGN KEY (cliente_id)
-REFERENCES cc1md_202308350.clientes (cliente_id)
+REFERENCES cc1md_202308350_postgresql.sql.clientes (cliente_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.envios ADD CONSTRAINT clientes_envios_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.envios ADD CONSTRAINT clientes_envios_fk
 FOREIGN KEY (cliente_id)
-REFERENCES cc1md_202308350.clientes (cliente_id)
+REFERENCES cc1md_202308350_postgresql.sql.clientes (cliente_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.pedidos_itens ADD CONSTRAINT envios_pedidos_itens_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.pedidos_itens ADD CONSTRAINT envios_pedidos_itens_fk
 FOREIGN KEY (envio_id)
-REFERENCES cc1md_202308350.envios (envio_id)
+REFERENCES cc1md_202308350_postgresql.sql.envios (envio_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE cc1md_202308350.pedidos_itens ADD CONSTRAINT pedidos_pedidos_itens_fk
+ALTER TABLE cc1md_202308350_postgresql.sql.pedidos_itens ADD CONSTRAINT pedidos_pedidos_itens_fk
 FOREIGN KEY (pedido_id)
-REFERENCES cc1md_202308350.pedidos (pedido_id)
+REFERENCES cc1md_202308350_postgresql.sql.pedidos (pedido_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
