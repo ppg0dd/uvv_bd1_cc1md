@@ -1,4 +1,5 @@
-<h1>PSET 1</h1>
-<ul>
-    <li>Nome: Pedro Henrique Santos dos Reis</li>
-</ul>
+# PSET 1
+
+- Nome: Pedro Henrique Santos dos Reis
+- Professor: Abrantes
+- Monitora:
