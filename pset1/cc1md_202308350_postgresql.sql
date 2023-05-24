@@ -275,7 +275,7 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 --
---  Adição da FK pedido_id, da tabela pedidos, na tabela pedidos_itens
+--  Adição da PFK pedido_id, da tabela pedidos, na tabela pedidos_itens
 --
 
 ALTER TABLE lojas.pedidos_itens ADD CONSTRAINT pedidos_pedidos_itens_fk
@@ -286,7 +286,7 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 --
---  Adição da FK envio_id, da tabela envios, na tabela pedidos_itens
+--  Adição da PFK envio_id, da tabela envios, na tabela pedidos_itens
 --
 
 ALTER TABLE lojas.pedidos_itens ADD CONSTRAINT envios_pedidos_itens_fk
