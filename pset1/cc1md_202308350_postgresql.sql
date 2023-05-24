@@ -10,14 +10,14 @@ DROP USER IF EXISTS pedro;
 --  Criação do usuário
 --
 
-CREATE USER pedro PASSWORD NULL SUPERUSER;
+CREATE USER pedro SUPERUSER ENCRYPTED PASSWORD 'vasco';
 
 --
 --  Criação do banco de dados 'uvv'
 --
 
 CREATE DATABASE uvv;
-\c uvv;
+\c "host=localhost dbname=uvv user=pedro password=vasco"
 
 --
 --  Criação do schema
