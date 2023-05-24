@@ -10,13 +10,26 @@ DROP USER IF EXISTS pedro;
 --  Criação do usuário
 --
 
-CREATE USER pedro SUPERUSER ENCRYPTED PASSWORD 'vasco';
+CREATE USER pedro WITH
+ENCRYPTED PASSWORD 'vasco'
+CREATEDB
+CREATEROLE
+LOGIN
+;
 
 --
---  Criação do banco de dados 'uvv'
+--  Criação do banco de dados 'uvv' e a conexão com o BD com o usuário e a senha escolhidas por mim
 --
 
-CREATE DATABASE uvv;
+CREATE DATABASE uvv 
+OWNER = pedro
+template = template0
+encoding = UTF8
+lc_collate = 'pt_BR.UTF-8'
+lc_ctype = 'pt_BR.UTF-8'
+ALLOW_CONNECTIONS = true
+;
+
 \c "host=localhost dbname=uvv user=pedro password=vasco"
 
 --
