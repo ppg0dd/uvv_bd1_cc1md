@@ -1,3 +1,25 @@
+--
+--  Criação do banco de dados 'uvv'
+--
+
+CREATE DATABASE uvv;
+
+--
+--  Criação do schema
+--
+
+CREATE SCHEMA lojas;
+
+--
+--  Criação do usuário e permição do schema para o usuário
+--
+
+CREATE USER pedro;
+ALTER SCHEMA lojas OWNER TO pedro;
+
+--
+--  Criação da tabela produtos
+--
 
 CREATE TABLE lojas.produtos (
                 produto_id NUMERIC(38) NOT NULL,
@@ -22,6 +44,9 @@ COMMENT ON COLUMN lojas.produtos.imagem_arquivo IS 'arquivo da imagem do produto
 COMMENT ON COLUMN lojas.produtos.imagem_charset IS 'charset da imagem do produto (opcional)';
 COMMENT ON COLUMN lojas.produtos.imagem_ultima_atualizacao IS 'data das ultimas atualizações de imagem do produto (opcional)';
 
+--
+--  Criação da tabela lojas
+--
 
 CREATE TABLE lojas.lojas (
                 loja_id NUMERIC(38) NOT NULL,
@@ -35,7 +60,8 @@ CREATE TABLE lojas.lojas (
                 logo_arquivo VARCHAR(512),
                 logo_charset VARCHAR(512),
                 logo_ultima_atualizacao DATE,
-                CONSTRAINT lojas_pk PRIMARY KEY (loja_id)
+                CONSTRAINT lojas_pk PRIMARY KEY (loja_id),
+                CONSTRAINT minimo_um_endereco CHECK (COALESCE(endereco_web, endereco_fisico) IS NOT NULL)
 );
 COMMENT ON TABLE lojas.lojas IS 'Tabela lojas responsável por registrar todas as lojas e suas especificações. Para diferencia-los tem a PK loja_id.';
 COMMENT ON COLUMN lojas.lojas.loja_id IS 'PK da tabela lojas. Especifica e diferencia cada loja';
@@ -50,6 +76,9 @@ COMMENT ON COLUMN lojas.lojas.logo_arquivo IS 'arquivo da logo da loja (opcional
 COMMENT ON COLUMN lojas.lojas.logo_charset IS 'logo charset da loja (opcional)';
 COMMENT ON COLUMN lojas.lojas.logo_ultima_atualizacao IS 'data das ultimas atualizações de logo da loja (opcional)';
 
+--
+--  Criação da tabela estoques
+--
 
 CREATE TABLE lojas.estoques (
                 estoque_id NUMERIC(38) NOT NULL,
@@ -64,6 +93,9 @@ COMMENT ON COLUMN lojas.estoques.loja_id IS 'PK da tabela lojas. Especifica e di
 COMMENT ON COLUMN lojas.estoques.produto_id IS 'PK da tabela produtos. Especifica e diferencia todos os produtos.';
 COMMENT ON COLUMN lojas.estoques.quantidade IS 'quantidade do produto da loja no estoque (obrigatório)';
 
+--
+--  Criação da tabela clientes
+--
 
 CREATE TABLE lojas.clientes (
                 cliente_id NUMERIC(38) NOT NULL,
@@ -82,12 +114,15 @@ COMMENT ON COLUMN lojas.clientes.telefone1 IS 'telefone 1 dos clientes (opcional
 COMMENT ON COLUMN lojas.clientes.telefone2 IS 'telefone 2 dos clientes (opcional)';
 COMMENT ON COLUMN lojas.clientes.telefone3 IS 'telefone 3 dos clientes (opcional)';
 
+--
+--  Criação da tabela pedidos
+--
 
 CREATE TABLE lojas.pedidos (
                 pedido_id NUMERIC(38) NOT NULL,
                 data_hora TIMESTAMP NOT NULL,
                 cliente_id NUMERIC(38) NOT NULL,
-                status VARCHAR(15) NOT NULL,
+                status VARCHAR(15) NOT NULL CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'),
                 loja_id NUMERIC(38) NOT NULL,
                 CONSTRAINT pedidos_pk PRIMARY KEY (pedido_id)
 );
@@ -98,13 +133,16 @@ COMMENT ON COLUMN lojas.pedidos.cliente_id IS 'PK da tabela clientes. Diferencia
 COMMENT ON COLUMN lojas.pedidos.status IS 'status do pedido (obrigatório)';
 COMMENT ON COLUMN lojas.pedidos.loja_id IS 'PK da tabela lojas. Especifica e diferencia cada loja';
 
+--
+--  Criação da tabela envios
+--
 
 CREATE TABLE lojas.envios (
                 envio_id NUMERIC(38) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
                 cliente_id NUMERIC(38) NOT NULL,
                 endereco_entrega VARCHAR(512) NOT NULL,
-                status VARCHAR(15) NOT NULL,
+                status VARCHAR(15) NOT NULL CHECK(status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE'),
                 CONSTRAINT envios_pk PRIMARY KEY (envio_id)
 );
 COMMENT ON TABLE lojas.envios IS 'Tabela envios, informa todos os envios feitos, seu destino, status, etc. Diferencia os envios pela PK envio_id. Além da FK loja_id da tabela lojas e da FK cliente_id da tabela clientes';
@@ -114,6 +152,9 @@ COMMENT ON COLUMN lojas.envios.cliente_id IS 'PK da tabela clientes. Diferencia 
 COMMENT ON COLUMN lojas.envios.endereco_entrega IS 'endereço de entrega do pedido (obrigatório)';
 COMMENT ON COLUMN lojas.envios.status IS 'status do envio (obrigatório)';
 
+--
+--  Criação da tabela pedidos_itens
+--
 
 CREATE TABLE lojas.pedidos_itens (
                 pedido_id NUMERIC(38) NOT NULL,
@@ -132,6 +173,9 @@ COMMENT ON COLUMN lojas.pedidos_itens.preco_unitario IS 'preço unitário dos it
 COMMENT ON COLUMN lojas.pedidos_itens.quantidade IS 'quantidade dos itens pedidos (obrigatório)';
 COMMENT ON COLUMN lojas.pedidos_itens.envio_id IS 'PK da tabela envios. Diferencia todos os envios e suas especificações.';
 
+--
+--  Adição da FK produto_id, da tabela produtos, na tabela estoques
+--
 
 ALTER TABLE lojas.estoques ADD CONSTRAINT produtos_estoques_fk
 FOREIGN KEY (produto_id)
