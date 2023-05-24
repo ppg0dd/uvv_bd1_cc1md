@@ -122,9 +122,10 @@ CREATE TABLE lojas.pedidos (
                 pedido_id NUMERIC(38) NOT NULL,
                 data_hora TIMESTAMP NOT NULL,
                 cliente_id NUMERIC(38) NOT NULL,
-                status VARCHAR(15) NOT NULL CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'),
+                status VARCHAR(15) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
-                CONSTRAINT pedidos_pk PRIMARY KEY (pedido_id)
+                CONSTRAINT pedidos_pk PRIMARY KEY (pedido_id),
+                CONSTRAINT status_pedidos CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO')
 );
 COMMENT ON TABLE lojas.pedidos IS 'Tabela pedidos. responsável por diferenciar cada pedido feito entre cliente e loja. tem como PK pedido_id para diferenciar os pedidos, além da FK cliente_id da tabela clientes e da FK loja_id da tabela lojas.';
 COMMENT ON COLUMN lojas.pedidos.pedido_id IS 'PK da tabela pedidos. Diferencia todos os pedidos.';
@@ -142,8 +143,9 @@ CREATE TABLE lojas.envios (
                 loja_id NUMERIC(38) NOT NULL,
                 cliente_id NUMERIC(38) NOT NULL,
                 endereco_entrega VARCHAR(512) NOT NULL,
-                status VARCHAR(15) NOT NULL CHECK(status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE'),
-                CONSTRAINT envios_pk PRIMARY KEY (envio_id)
+                status VARCHAR(15) NOT NULL,
+                CONSTRAINT envios_pk PRIMARY KEY (envio_id),
+                CONSTRAINT status_envios CHECK(status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE')
 );
 COMMENT ON TABLE lojas.envios IS 'Tabela envios, informa todos os envios feitos, seu destino, status, etc. Diferencia os envios pela PK envio_id. Além da FK loja_id da tabela lojas e da FK cliente_id da tabela clientes';
 COMMENT ON COLUMN lojas.envios.envio_id IS 'PK da tabela envios. Diferencia todos os envios e suas especificações.';
