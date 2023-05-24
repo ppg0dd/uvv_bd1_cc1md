@@ -1,20 +1,29 @@
 --
+-- Apagando esquema / banco de dados / usuários se existerem
+--
+
+DROP SCHEMA lojas CASCADE;
+DROP DATABASE IF EXISTS uvv;
+DROP USER IF EXISTS pedro;
+
+--
+--  Criação do usuário
+--
+
+CREATE USER pedro PASSWORD NULL SUPERUSER;
+
+--
 --  Criação do banco de dados 'uvv'
 --
 
 CREATE DATABASE uvv;
+\c uvv;
 
 --
 --  Criação do schema
 --
 
 CREATE SCHEMA lojas;
-
---
---  Criação do usuário e permição do schema para o usuário
---
-
-CREATE USER pedro;
 ALTER SCHEMA lojas OWNER TO pedro;
 
 --
