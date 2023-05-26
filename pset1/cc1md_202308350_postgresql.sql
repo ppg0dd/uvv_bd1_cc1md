@@ -7,7 +7,7 @@ DROP DATABASE IF EXISTS uvv;
 DROP USER IF EXISTS pedro;
 
 --
---  Criação do usuário
+--  Criação do usuário (sua senha e todas as suas permissões)
 --
 
 CREATE USER pedro WITH
@@ -33,7 +33,7 @@ ALLOW_CONNECTIONS = true
 \c "host=localhost dbname=uvv user=pedro password=vasco"
 
 --
---  Criação do schema
+--  Criação do schema (esquema) e colocando meu usuário como proprietário
 --
 
 CREATE SCHEMA lojas;
