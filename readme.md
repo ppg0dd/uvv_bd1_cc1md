@@ -2,7 +2,7 @@
 
 - Nome: Pedro Henrique Santos dos Reis
 - Professor: Abrantes
-- Monitora:
+- Monitora: Suellen Miranda Amorim
 
 ## Descrição
 
